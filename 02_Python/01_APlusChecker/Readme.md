@@ -21,44 +21,41 @@
 
 :: If Summative
 
-- Points Earned   Summative Prediction
-- Points Possible Summative Prediction
+- Info required: Points Earned   Summative Prediction
+- Info required: Points Possible Summative Prediction
 
-Average Summative = 
+Average Summative Prediction = 
     (Sum of (Points Earned Summative) + Points Earned Summative Prediction) / 
     (Sum of (Points Possible Summative) + Points Possible Summative Prediction)
 
-Grade Prediction = ほげほげ
+Grade Prediction = (Average Summative Prediction) * 60% + (Average Formative) * 40% 
 
 :: If Formative
 
-- Points Earned   Formative Prediction
-- Points Possible Formative Prediction
+- Info required: Points Earned   Formative Prediction
+- Info required: Points Possible Formative Prediction
 
-Average Formative = 
+Average Formative Prediction = 
     (Sum of (Points Earned Formative) + Points Earned Formative Prediction) / 
     (Sum of (Points Possible Formative) + Points Possible Formative Prediction)
 
-Grade Prediction = ふがふが
+Grade Prediction = (Average Summative) * 60% + (Average Formative Prediction) * 40% 
 
 ### Data - Current
 
+**Take Bible course as an example:**
+
 Sum of (Points Earned Formative) 
-= 8 + 15 + 5 + 15 + 5 + 3 + 3 + 5 + 5
-= 64
+= 140
 
 Sum of (Points Possible Formative)
-= 10 + 15 + 5 + 15 + 5 + 3 + 3 + 5 + 5
-= 66
-
+= 146
 
 Sum of (Points Earned Summative) 
-= 18 + 30 + 14 + 27 + 18
-= 107
+= 104
 
 Sum of (Points Possible Summative)
-= 18 + 28 + 13 + 26 + 20
-= 105
+= 107
 
 ### Data - Prediction
 
@@ -67,19 +64,41 @@ Sum of (Points Possible Summative)
 - Points Possible: 20
 
 
-====================
 
 ### Input
 
-- (A) Subject
-- (B) Formative or Summative
-- (C) New score
+Use default data set for (A) and (B) for the time being. 
 
-### Output: 
+// - (A) Subject (Default: Bible)
+// - (B) Data - Current (Defautl: Bible data)
 
-- (A) New total score
-- (B) New formative score
-- (C) New summative score
+- (C) Summative or Formative
+- (D) Points Earned 
+- (E) Points Possible
+
+### Output
+
+- (A) Points Earned 
+    Summative Current
+    Summative Prediction
+    Formative Current
+    Formative Prediction
+
+- (B) Points Possbile
+    Summative Current
+    Summative Prediction
+    Formative Current
+    Formative Prediction
+
+- (C) Average
+    Summative Current
+    Summative Prediction
+    Formative Current
+    Formative Prediction
+
+- (D) Grade
+    
+
 
 
 
