@@ -13,11 +13,17 @@ SumOfPointsPossibleFormative = 146
 SumOfPointsEarnedSummative = 104
 SumOfPointsPossibleSummative = 107
 
+### Function - Calculate Grade with round up
+def calculateGradeWithRoundUp(AverageSummative, AverageFormative):
+    Grade = (AverageSummative) * 0.6 + (AverageFormative) *  0.4
+    RoundedUpGrade = round(Grade, 4) * 100
+    return RoundedUpGrade
+
+
 ## Calculate Current Average
-AverageSummative = SumOfPointsEarnedSummative / SumOfPointsPossibleSummative
-AverageFormative = SumOfPointsEarnedFormative / SumOfPointsPossibleFormative
-GradeCurrent = (AverageSummative) * 0.6 + (AverageFormative) *  0.4
-RoundedUpGradeCurrent = round(GradeCurrent, 4) * 100
+AverageSummativeCurrent = SumOfPointsEarnedSummative / SumOfPointsPossibleSummative
+AverageFormativeCurrent = SumOfPointsEarnedFormative / SumOfPointsPossibleFormative
+RoundedUpGradeCurrent = calculateGradeWithRoundUp(AverageSummativeCurrent, AverageFormativeCurrent)
 
 print ("Current Grade is ", RoundedUpGradeCurrent)
 
@@ -41,27 +47,27 @@ print ("New Points Earned is ", NewPointsEarned)
 print ("New Points Possible is ", NewPointsPossible)
 
 ### Calculate Prediction Average Based on the input
-if NewAssignmentType.lower() == "summative":
+if NewAssignmentType.lower() == "summative" or NewAssignmentType.lower() == "s":
     PointsEarnedSummativePrediction = NewPointsEarned
     PointsPossibleSummativePrediction = NewPointsPossible
 
     AverageSummativePrediction = (SumOfPointsEarnedSummative + PointsEarnedSummativePrediction) / (SumOfPointsPossibleSummative + PointsPossibleSummativePrediction)
-    RoundedUpAverageSummativePrediction = round(AverageSummativePrediction, 4) * 100
-    print ("Average prediction is", RoundedUpAverageSummativePrediction)
+    AverageForamtivePrediction = AverageFormativeCurrent
 
-elif NewAssignmentType.lower() == "formative":
+elif NewAssignmentType.lower() == "formative" or NewAssignmentType.lower() == "f":
     PointsEarnedFormativePrediction = NewPointsEarned
     PointsPossibleFormativePrediction = NewPointsPossible
 
     AverageForamtivePrediction = (SumOfPointsEarnedFormative + PointsEarnedFormativePrediction) / (SumOfPointsPossibleFormative + PointsPossibleFormativePrediction)
-    RoundedUpAverageFormativePrediction = round(AverageForamtivePrediction, 4) * 100
-    print ("Average prediction is", RoundedUpAverageFormativePrediction)
+    AverageSummativePrediction = AverageSummativeCurrent
 
 else:
     print ("wrong assignment type! needs to be either summative or formative")
 
 
+# Calculate grade prediction
+RoundedUpGradePrediction = calculateGradeWithRoundUp(AverageSummativePrediction, AverageForamtivePrediction)
 
-
+print ("Grade prediction is", RoundedUpGradePrediction)
 
 
